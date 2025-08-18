@@ -1,0 +1,2270 @@
+<!DOCTYPE html>
+<html lang="ro">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CIRASICO Modern - Demo</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    /* Reset and Base Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      color: #2c3e50;
+      background-color: #ffffff;
+      font-size: 16px;
+    }
+
+    /* Color Variables - Professional Construction Theme */
+    :root {
+      --primary-red: #e74c3c;
+      --secondary-red: #c0392b;
+      --accent-orange: #f39c12;
+      --metallic-grey: #34495e;
+      --light-grey: #ecf0f1;
+      --ash-black: #2c3e50;
+      --white: #ffffff;
+      --dark-blue: #2c3e50;
+      --shadow: rgba(0, 0, 0, 0.08);
+      --shadow-hover: rgba(0, 0, 0, 0.15);
+      --border-color: #161718;
+    }
+
+    body {
+      padding-top: 0;
+    }
+
+    /* Top Contact Bar - Professional Style */
+    .top-contact-bar {
+      background: linear-gradient(135deg, var(--dark-blue) 0%, var(--metallic-grey) 100%);
+      color: var(--white);
+      padding: 1rem 0;
+      border-bottom: 2px solid var(--accent-orange);
+      position: sticky;
+      top: 0;
+      z-index: 999;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .contact-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    .contact-info {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .contact-left,
+    .contact-right {
+      display: flex;
+      align-items: center;
+      gap: 2.5rem;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-size: 0.95rem;
+      font-weight: 500;
+    }
+
+    .contact-item i {
+      color: var(--white);
+      font-size: 1.1rem;
+      width: 20px;
+      text-align: center;
+    }
+
+    .contact-item a {
+      color: var(--white);
+      text-decoration: none;
+      transition: all 0.3s ease;
+      font-weight: 500;
+    }
+
+    .contact-item a:hover {
+      color: var(--primary-red);
+      /* Red on hover */
+      transform: translateY(-1px);
+    }
+
+    .linkedin-link {
+      color: var(--white);
+      font-size: 1.6rem;
+      transition: all 0.3s ease;
+    }
+
+    .linkedin-link:hover {
+      color: var(--accent--secondary-red);
+      transform: scale(1.1);
+    }
+
+    /* Navigation Header - Professional Style */
+    .navigation-header {
+      background: var(--white);
+      border-bottom: 1px solid var(--border-color);
+      padding: 1.25rem 0;
+      position: sticky;
+      top: 60px;
+      z-index: 998;
+      box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+      margin: 0;
+    }
+
+    .nav-container {
+      max-width: 1000px;
+      /* Changed from 800px */
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    .nav-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 2rem;
+    }
+
+    .nav-logo {
+      flex-shrink: 0;
+      margin-left: -0.5rem;
+    }
+
+    .logo-image {
+      height: 100px;
+      width: auto;
+      max-width: 320px;
+      filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+    }
+
+    .main-navigation {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      margin-left: 2rem;
+    }
+
+
+
+    .nav-menu {
+      display: flex;
+      list-style: none;
+      gap: 2rem;
+      margin: 0;
+      padding: 0;
+    }
+
+    .nav-menu li a {
+      color: var(--ash-black);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.7rem;
+      /* Reduced from 0.8rem to fit in 600px */
+      transition: all 0.3s ease;
+      padding: 0.4rem 0.5rem;
+      /* Reduced from 0.5rem 0.6rem to fit in 600px */
+      position: relative;
+      border-radius: 6px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .nav-menu li a:hover {
+      color: var(--ash-black);
+    }
+
+    .nav-menu li a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 0;
+      height: 3px;
+      background: var(--primary-red);
+      transition: width 0.3s ease;
+      border-radius: 2px;
+    }
+
+    .nav-menu li a:hover::after {
+      width: 80%;
+    }
+
+    .mobile-menu-toggle {
+      display: none;
+      flex-direction: column;
+      gap: 4px;
+      cursor: pointer;
+      padding: 0.5rem;
+      border-radius: 6px;
+      transition: background 0.3s ease;
+    }
+
+    .mobile-menu-toggle:hover {
+      background: rgba(0, 0, 0, 0.05);
+    }
+
+    .hamburger-line {
+      width: 28px;
+      height: 3px;
+      background: var(--ash-black);
+      transition: all 0.3s ease;
+      border-radius: 2px;
+    }
+
+    /* Mobile Navigation Menu */
+    .mobile-navigation {
+      display: none;
+      position: fixed;
+      top: 160px;
+      left: 0;
+      right: 0;
+      background: var(--white);
+      border-bottom: 1px solid var(--border-color);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      z-index: 999;
+      max-height: calc(100vh - 160px);
+      overflow-y: auto;
+    }
+
+    .mobile-nav-menu {
+      list-style: none;
+      margin: 0;
+      padding: 1rem 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .mobile-nav-menu li {
+      border-bottom: 1px solid var(--light-grey);
+    }
+
+    .mobile-nav-menu li:last-child {
+      border-bottom: none;
+    }
+
+    .mobile-nav-menu li a {
+      display: block;
+      padding: 1rem 2rem;
+      color: var(--ash-black);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      transition: all 0.3s ease;
+      border: 1px solid transparent;
+    }
+
+    .mobile-nav-menu li:first-child a {
+      border-top: 1px solid var(--light-grey);
+    }
+
+    .mobile-nav-menu li a:hover {
+      background: rgba(231, 76, 60, 0.05);
+      color: var(--primary-red);
+    }
+
+    /* Hero Section - Professional Style */
+    .hero-section {
+      background: url('CirasicoImage2.jpg') center center/cover no-repeat;
+      color: var(--white);
+      padding: 0;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      min-height: 520px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .hero-bg-image {
+      display: none;
+    }
+
+    .hero-overlay {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+      gap: 2.5rem;
+      padding: 3rem 1rem 2rem 5vw;
+      /* Added left padding for margin */
+    }
+
+    .hero-logo-title {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-logo {
+      width: 110px;
+      height: auto;
+      margin-bottom: 0.5rem;
+      filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.10));
+    }
+
+    .hero-main-title {
+      font-size: 2.1rem;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+      color: var(--white);
+      text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.10);
+    }
+
+    .hero-subtitle {
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: var(--white);
+      opacity: 0.95;
+    }
+
+    .hero-descoper {
+      font-size: 1.05rem;
+      font-weight: 400;
+      color: var(--white);
+      margin-top: 0.2rem;
+    }
+
+    .hero-white-box {
+      background: var(--white);
+      border-radius: 18px;
+      box-shadow: 0 8px 32px rgba(44, 62, 80, 0.13);
+      padding: 2.5rem 2.2rem 2.2rem 2.2rem;
+      max-width: 540px;
+      width: 100%;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 1.5rem;
+    }
+
+    .hero-white-title {
+      color: var(--ash-black);
+      font-size: 1.45rem;
+      font-weight: 800;
+      text-align: center;
+      margin-bottom: 0.5rem;
+      line-height: 1.3;
+    }
+
+    .hero-white-text {
+      color: var(--ash-black);
+      font-size: 1.05rem;
+      font-weight: 400;
+      text-align: left;
+      margin-bottom: 0.5rem;
+      line-height: 1.7;
+    }
+
+    .hero-white-buttons {
+      display: flex;
+      gap: 1.2rem;
+      margin-top: 0.5rem;
+      width: 100%;
+      justify-content: center;
+    }
+
+    .hero-btn {
+      display: inline-block;
+      background: linear-gradient(135deg, var(--primary-red) 0%, var(--secondary-red) 100%);
+      color: var(--white);
+      padding: 0.85rem 2.1rem;
+      border-radius: 8px;
+      /* Changed from 50px to 8px for rectangular */
+      font-weight: 700;
+      font-size: 1rem;
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      box-shadow: 0 4px 18px rgba(231, 76, 60, 0.13);
+      border: 2px solid transparent;
+      /* Always 2px to prevent shift */
+      transition: background 0.3s, color 0.3s, box-shadow 0.3s;
+    }
+
+    .hero-btn:hover {
+      background: var(--white);
+      color: var(--primary-red);
+      border: 2px solid var(--primary-red);
+      /* No border width change */
+      box-shadow: 0 8px 32px rgba(231, 76, 60, 0.18);
+    }
+
+    .hero-btn-secondary {
+      background: var(--white);
+      color: var(--primary-red);
+      border: 2px solid var(--primary-red);
+    }
+
+    .hero-btn-secondary:hover {
+      background: linear-gradient(135deg, var(--primary-red) 0%, var(--secondary-red) 100%);
+      color: var(--white);
+      border: 2px solid var(--primary-red);
+    }
+
+    @media (max-width: 600px) {
+      .hero-white-box {
+        padding: 1.2rem 0.7rem 1.2rem 0.7rem;
+        max-width: 98vw;
+      }
+
+      .hero-logo {
+        width: 70px;
+      }
+
+      .hero-main-title {
+        font-size: 1.2rem;
+      }
+
+      .hero-white-title {
+        font-size: 1.05rem;
+      }
+    }
+
+    @media (max-width: 800px) {
+      .hero-overlay {
+        align-items: center;
+        padding: 2rem 1rem;
+      }
+
+      .hero-white-box {
+        align-items: center;
+        margin: 0 auto;
+      }
+    }
+
+    /* Main Content - Professional Style */
+    .main-content {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 5rem 0;
+      box-sizing: border-box;
+    }
+
+    .content-section {
+      margin-bottom: 5rem;
+    }
+
+    .section-title {
+      font-size: 2.5rem;
+      color: var(--ash-black);
+      margin-bottom: 3rem;
+      text-align: left;
+      margin-left: 0;
+      padding-left: 0;
+      position: relative;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      box-sizing: border-box;
+      width: 100%;
+      max-width: 1400px;
+      margin-left: auto;
+      margin-right: auto;
+      padding-left: 5%;
+      padding-right: 5%;
+    }
+
+    .section-title::after {
+      display: none;
+      content: none;
+    }
+
+    .about-subtitle {
+      font-size: 2.2rem;
+      color: var(--ash-black);
+      font-weight: 700;
+      text-align: left;
+      margin-left: 0;
+      padding-left: 0;
+      margin-bottom: 1.5rem;
+      font-style: normal;
+      opacity: 1;
+      text-transform: none;
+      letter-spacing: normal;
+    }
+
+    .about-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+      margin-top: 1rem;
+      box-sizing: border-box;
+      width: 100%;
+      max-width: 1400px;
+      margin-left: auto;
+      margin-right: auto;
+      padding-left: 5%;
+      padding-right: 5%;
+    }
+
+    .about-text {
+      order: 1;
+    }
+
+    .about-image {
+      order: 2;
+      text-align: center;
+    }
+
+    .about-img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    .about-description {
+      font-size: 1.1rem;
+      color: var(--metallic-grey);
+      line-height: 1.8;
+      margin-bottom: 1.5rem;
+      font-weight: 400;
+      text-align: right;
+    }
+
+    .about-description:last-child {
+      margin-bottom: 0;
+    }
+
+    @media (max-width: 768px) {
+      .about-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+
+      .about-text {
+        order: 2;
+      }
+
+      .about-image {
+        order: 1;
+      }
+    }
+
+    /* Cards Grid - Professional Style */
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 2.5rem;
+      margin-top: 4rem;
+      box-sizing: border-box;
+      width: 100%;
+      max-width: 1400px;
+      margin-left: auto;
+      margin-right: auto;
+      padding-left: 5%;
+      padding-right: 5%;
+    }
+
+    .card {
+      background: var(--white);
+      border-radius: 16px;
+      padding: 2.5rem;
+      box-shadow: 0 8px 30px var(--shadow);
+      transition: all 0.4s ease;
+      border: 1px solid var(--border-color);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--primary-red), var(--accent-orange));
+      transform: scaleX(0);
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover::before {
+      transform: scaleX(1);
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 15px 40px var(--shadow-hover);
+      border-color: var(--primary-red);
+    }
+
+    .card-icon {
+      width: 70px;
+      height: 70px;
+      background: linear-gradient(135deg, var(--primary-red), var(--accent-orange));
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 2rem;
+      color: var(--white);
+      font-size: 1.8rem;
+      box-shadow: 0 4px 15px rgba(231, 76, 60, 0.3);
+    }
+
+    .card-title {
+      font-size: 1.75rem;
+      color: var(--ash-black);
+      margin-bottom: 1.5rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .card-content {
+      color: var(--metallic-grey);
+      line-height: 1.8;
+      font-size: 1.05rem;
+    }
+
+    .card-content a {
+      color: var(--primary-red);
+      text-decoration: none;
+      transition: color 0.3s ease;
+      font-weight: 600;
+    }
+
+    .card-content a:hover {
+      color: var(--secondary-red);
+    }
+
+    /* Footer - Professional Style */
+    .site-footer {
+      background: linear-gradient(135deg, var(--ash-black) 0%, var(--metallic-grey) 100%);
+      color: var(--white);
+      padding: 4rem 0 2rem;
+      position: relative;
+    }
+
+    .site-footer::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--primary-red), var(--accent-orange));
+    }
+
+    .footer-content {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 3rem;
+    }
+
+    .footer-section h3 {
+      color: var(--accent-orange);
+      margin-bottom: 1.5rem;
+      font-size: 1.4rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .footer-services-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .footer-section p,
+    .footer-section a {
+      color: var(--light-grey);
+      text-decoration: none;
+      line-height: 1.8;
+      font-size: 1rem;
+    }
+
+    .footer-section a:hover {
+      color: var(--accent-orange);
+      transform: translateX(5px);
+      transition: all 0.3s ease;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid var(--metallic-grey);
+      margin-top: 3rem;
+      padding-top: 2rem;
+      text-align: center;
+      color: var(--light-grey);
+      font-size: 0.95rem;
+    }
+
+    /* Back to Top Button - Professional Style */
+    #back-to-top {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      background: linear-gradient(135deg, var(--primary-red), var(--secondary-red));
+      color: var(--white);
+      border: none;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      cursor: pointer;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      box-shadow: 0 6px 20px rgba(231, 76, 60, 0.3);
+      transition: all 0.3s ease;
+      z-index: 1000;
+    }
+
+    #back-to-top:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(231, 76, 60, 0.4);
+    }
+
+    /* Demo Controls - Professional Style */
+    .demo-controls {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: var(--white);
+      padding: 1.5rem;
+      border-radius: 16px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+      z-index: 1000;
+      border: 1px solid var(--border-color);
+    }
+
+    .demo-controls button {
+      background: linear-gradient(135deg, var(--primary-red), var(--secondary-red));
+      color: var(--white);
+      border: none;
+      padding: 0.75rem 1.5rem;
+      border-radius: 8px;
+      cursor: pointer;
+      margin: 0.25rem;
+      font-size: 0.9rem;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .demo-controls button:hover {
+      background: linear-gradient(135deg, var(--secondary-red), var(--primary-red));
+      transform: translateY(-2px);
+      box-shadow: 0 4px 15px rgba(231, 76, 60, 0.3);
+    }
+
+    /* Responsive Design - Professional Style */
+    @media (max-width: 768px) {
+      .top-contact-bar {
+        padding: 0.75rem 0;
+      }
+
+      .contact-info {
+        flex-direction: row;
+        justify-content: space-between;
+        gap: 1rem;
+        text-align: left;
+      }
+
+      .contact-left {
+        display: none !important;
+      }
+
+      .contact-right {
+        justify-content: flex-end !important;
+        gap: 1rem !important;
+        width: auto !important;
+      }
+
+      .contact-item {
+        font-size: 0.9rem;
+      }
+
+      .linkedin-link {
+        font-size: 2rem;
+        margin-top: 0.5rem;
+      }
+
+      /* Navigation Header Mobile */
+      .navigation-header {
+        top: 50px;
+        padding: 1rem 0;
+      }
+
+      .nav-content {
+        flex-direction: row;
+        justify-content: center;
+        gap: 1rem;
+        position: relative;
+      }
+
+      .main-navigation {
+        display: none;
+      }
+
+      .mobile-menu-toggle {
+        display: flex !important;
+        position: absolute;
+        right: 0;
+      }
+
+      .nav-logo {
+        order: 1;
+      }
+
+      .logo-image {
+        height: 80px;
+      }
+
+      .hero-title {
+        font-size: 2.8rem;
+        letter-spacing: 1px;
+      }
+
+      .hero-subtitle {
+        font-size: 1.4rem;
+      }
+
+      .section-title {
+        font-size: 2.2rem;
+      }
+
+      .cards-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+
+      .card {
+        padding: 2rem;
+      }
+
+      .main-content {
+        padding: 3rem 1.5rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero-title {
+        font-size: 2.2rem;
+      }
+
+      .hero-subtitle {
+        font-size: 1.2rem;
+      }
+
+      .section-title {
+        font-size: 1.8rem;
+      }
+
+      .card {
+        padding: 1.5rem;
+      }
+
+      .contact-container,
+      .nav-container,
+      .hero-content,
+      .main-content {
+        padding: 0 1rem;
+      }
+    }
+
+    .best-services-section {
+      background: #f7f8fa;
+      padding: 4rem 0 3rem 0;
+      margin: 0;
+      box-sizing: border-box;
+    }
+
+    .best-services-section .section-title {
+      color: var(--ash-black);
+      font-size: 2.5rem;
+      font-weight: 800;
+      text-align: left;
+      margin-bottom: 2.5rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-left: 0;
+      padding-left: 0;
+      box-sizing: border-box;
+      width: 100%;
+      max-width: 1400px;
+      margin-left: auto;
+      margin-right: auto;
+      padding-left: 5%;
+      padding-right: 5%;
+    }
+
+    .best-services-section .section-title::after {
+      display: none;
+      content: none;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.2rem;
+      width: 100%;
+      margin: 0;
+      padding: 0 2rem 0 0;
+      max-width: 1400px;
+      margin-left: auto;
+      margin-right: auto;
+      padding-left: 5%;
+      padding-right: 5%;
+    }
+
+    .service-card {
+      background: transparent;
+      border-radius: 0;
+      box-shadow: none;
+      padding: 0.75rem 0;
+      color: var(--ash-black);
+      text-align: left;
+      border: none;
+      transition: none;
+    }
+
+    .service-card:hover {
+      box-shadow: none;
+      transform: none;
+      border-color: transparent;
+    }
+
+    .service-card .service-title {
+      color: var(--primary-red);
+      font-weight: 800;
+      font-size: 0.95rem;
+      margin-bottom: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .service-card .service-desc {
+      color: var(--metallic-grey);
+      font-weight: 300;
+      line-height: 1.7;
+      font-size: 1rem;
+      margin-bottom: 1rem;
+      margin-top: 0;
+    }
+
+    .service-card .service-desc strong {
+      font-weight: 900;
+    }
+
+    @media (max-width: 800px) {
+      .services-grid {
+        grid-template-columns: 1fr 1fr;
+        padding: 0 1rem 0 0;
+      }
+    }
+
+    @media (max-width: 500px) {
+      .services-grid {
+        grid-template-columns: 1fr;
+        padding: 0 0.5rem 0 0;
+      }
+    }
+
+    /* MOBILE-FIRST SERVICES RESPONSIVE CSS - OVERRIDE EXISTING STYLES */
+    @media (max-width: 767px) {
+      .best-services-section {
+        padding: 2.5rem 1rem !important;
+      }
+
+      .services-grid {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 1rem !important;
+        margin-top: 2rem !important;
+        grid-template-columns: unset !important;
+        padding: 0 !important;
+        max-width: none !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+      }
+
+      .service-card {
+        display: flex !important;
+        flex-direction: row !important;
+        align-items: flex-start !important;
+        text-align: left !important;
+        padding: 1.25rem !important;
+        border-radius: 10px !important;
+        background: #ffffff !important;
+        border: 1px solid #e9ecef !important;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08) !important;
+        color: var(--ash-black) !important;
+        transition: none !important;
+        transform: none !important;
+      }
+
+      .service-card:hover {
+        transform: none !important;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08) !important;
+        border-color: #e9ecef !important;
+        background: #ffffff !important;
+      }
+
+      .service-card .service-title {
+        font-size: 1.1rem !important;
+        font-weight: 600 !important;
+        color: var(--ash-black) !important;
+        margin-bottom: 0.75rem !important;
+        line-height: 1.3 !important;
+        display: block !important;
+        flex: 1 !important;
+        min-width: 0 !important;
+        text-transform: none !important;
+        letter-spacing: normal !important;
+        white-space: normal !important;
+        overflow: visible !important;
+        text-overflow: unset !important;
+      }
+
+      .service-card .service-desc {
+        color: #555 !important;
+        line-height: 1.5 !important;
+        font-size: 0.9rem !important;
+        margin: 0 !important;
+        display: block !important;
+        flex: 1 !important;
+        min-width: 0 !important;
+        font-weight: 400 !important;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .best-services-section {
+        padding: 2rem 0.75rem !important;
+      }
+
+      .services-grid {
+        gap: 0.875rem !important;
+        margin-top: 1.75rem !important;
+      }
+
+      .service-card {
+        padding: 1.125rem !important;
+        border-radius: 8px !important;
+      }
+
+      .service-card .service-title {
+        font-size: 1rem !important;
+        margin-bottom: 0.625rem !important;
+      }
+
+      .service-card .service-desc {
+        font-size: 0.85rem !important;
+        line-height: 1.4 !important;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .best-services-section {
+        padding: 1.75rem 0.5rem !important;
+      }
+
+      .services-grid {
+        gap: 0.75rem !important;
+        margin-top: 1.5rem !important;
+      }
+
+      .service-card {
+        padding: 1rem !important;
+        border-radius: 6px !important;
+      }
+
+      .service-card .service-title {
+        font-size: 0.95rem !important;
+        margin-bottom: 0.5rem !important;
+      }
+
+      .service-card .service-desc {
+        font-size: 0.8rem !important;
+        line-height: 1.3 !important;
+      }
+    }
+
+    @media (max-width: 375px) {
+      .best-services-section {
+        padding: 1.5rem 0.25rem !important;
+      }
+
+      .services-grid {
+        gap: 0.625rem !important;
+        margin-top: 1.25rem !important;
+      }
+
+      .service-card {
+        padding: 0.875rem !important;
+        border-radius: 4px !important;
+      }
+
+      .service-card .service-title {
+        font-size: 0.9rem !important;
+        margin-bottom: 0.375rem !important;
+      }
+
+      .service-card .service-desc {
+        font-size: 0.7rem !important;
+        line-height: 1.2 !important;
+      }
+    }
+
+    @media (max-width: 320px) {
+      .best-services-section {
+        padding: 1.25rem 0.125rem !important;
+      }
+
+      .services-grid {
+        gap: 0.5rem !important;
+        margin-top: 1rem !important;
+      }
+
+      .service-card {
+        padding: 0.75rem !important;
+        border-radius: 3px !important;
+      }
+
+      .service-card .service-title {
+        font-size: 0.85rem !important;
+        margin-bottom: 0.25rem !important;
+      }
+
+      .service-card .service-desc {
+        font-size: 0.65rem !important;
+        line-height: 1.1 !important;
+      }
+    }
+
+    /* PROIECTE RECENTE Section - Full Width Background */
+    #projects.content-section {
+      overflow-x: hidden;
+    }
+
+    #projects.content-section>div {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* MOBILE-FIRST PROIECTE RECENTE RESPONSIVE CSS - Following content-section pattern */
+    @media (max-width: 768px) {
+
+      /* PROIECTE RECENTE Section - Mobile Layout */
+      #projects.content-section {
+        padding: 2rem 1rem !important;
+        margin: 1rem 0 !important;
+        width: 100% !important;
+        position: relative !important;
+        left: auto !important;
+        right: auto !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        border-radius: 0 !important;
+      }
+
+      #projects.content-section .about-content {
+        flex-direction: column !important;
+        gap: 2rem !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        max-width: none !important;
+      }
+
+      #projects.content-section .about-image {
+        order: 1 !important;
+        flex: none !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        margin-bottom: 1rem !important;
+      }
+
+      #projects.content-section .about-img {
+        width: 100% !important;
+        height: auto !important;
+        border-radius: 8px !important;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2) !important;
+      }
+
+      #projects.content-section .about-text {
+        order: 2 !important;
+        flex: 1 !important;
+        width: 100% !important;
+        text-align: center !important;
+        color: white !important;
+      }
+
+      #projects.content-section .section-title {
+        font-size: 1.8rem !important;
+        margin-bottom: 1rem !important;
+        text-align: center !important;
+        color: white !important;
+        padding: 0 !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        max-width: none !important;
+      }
+
+      #projects.content-section .about-subtitle {
+        font-size: 1.4rem !important;
+        text-align: center !important;
+        color: white !important;
+        margin-bottom: 1rem !important;
+        font-weight: 600 !important;
+      }
+
+      #projects.content-section .about-description {
+        font-size: 0.95rem !important;
+        line-height: 1.6 !important;
+        color: white !important;
+        margin-bottom: 1rem !important;
+        text-align: left !important;
+        opacity: 0.9 !important;
+      }
+
+      #projects.content-section .about-description:last-child {
+        margin-bottom: 1.5rem !important;
+      }
+
+
+      /* Projects button - wide and centered */
+      #projects.content-section a[href="proiectele-noastre.html"] {
+        display: block !important;
+        width: 100% !important;
+        max-width: 300px !important;
+        margin: 0 auto 1.5rem auto !important;
+        text-decoration: none !important;
+      }
+
+      #projects.content-section a[href="proiectele-noastre.html"] div {
+        background: var(--primary-red) !important;
+        color: white !important;
+        padding: 1rem 1.5rem !important;
+        border-radius: 8px !important;
+        font-weight: 600 !important;
+        font-size: 1rem !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        gap: 0.75rem !important;
+        width: 100% !important;
+        box-shadow: 0 4px 15px rgba(231, 76, 60, 0.3) !important;
+        transition: none !important;
+        transform: none !important;
+      }
+
+      #projects.content-section a[href="proiectele-noastre.html"] div:hover {
+        transform: none !important;
+        box-shadow: 0 4px 15px rgba(231, 76, 60, 0.3) !important;
+        background: var(--primary-red) !important;
+      }
+
+      #projects.content-section a[href="proiectele-noastre.html"] i {
+        font-size: 0.9rem !important;
+        opacity: 0.8 !important;
+        transition: none !important;
+      }
+
+      /* Image labels - centered below image */
+      #projects.content-section .about-image>div {
+        position: static !important;
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 0.5rem !important;
+        margin-top: 1rem !important;
+        align-items: center !important;
+        justify-content: center !important;
+      }
+
+      #projects.content-section .about-image>div>div {
+        background: var(--ash-black) !important;
+        color: white !important;
+        padding: 0.5rem 1rem !important;
+        border-radius: 6px !important;
+        font-weight: 600 !important;
+        font-size: 0.9rem !important;
+        width: fit-content !important;
+        text-align: center !important;
+      }
+
+      #projects.content-section .about-image>div>div:last-child {
+        background: var(--primary-red) !important;
+        cursor: pointer !important;
+      }
+    }
+
+    @media (max-width: 600px) {
+      #projects.content-section {
+        padding: 1.5rem 0.75rem !important;
+      }
+
+      #projects.content-section .section-title {
+        font-size: 1.6rem !important;
+        margin-bottom: 0.875rem !important;
+      }
+
+      #projects.content-section .about-subtitle {
+        font-size: 1.3rem !important;
+        margin-bottom: 0.875rem !important;
+      }
+
+      #projects.content-section .about-description {
+        font-size: 0.9rem !important;
+        margin-bottom: 0.875rem !important;
+      }
+
+      #projects.content-section .about-description:last-child {
+        margin-bottom: 1.25rem !important;
+      }
+
+      #projects.content-section a[href="proiectele-noastre.html"] {
+        max-width: 280px !important;
+      }
+
+      #projects.content-section a[href="proiectele-noastre.html"] div {
+        padding: 0.875rem 1.25rem !important;
+        font-size: 0.95rem !important;
+        margin-bottom: 1.25rem !important;
+      }
+
+      #projects.content-section .about-image>div {
+        margin-top: 0.875rem !important;
+      }
+    }
+
+    @media (max-width: 480px) {
+      #projects.content-section {
+        padding: 1.25rem 0.5rem !important;
+      }
+
+      #projects.content-section .section-title {
+        font-size: 1.5rem !important;
+        margin-bottom: 0.75rem !important;
+      }
+
+      #projects.content-section .about-subtitle {
+        font-size: 1.2rem !important;
+        margin-bottom: 0.75rem !important;
+      }
+
+      #projects.content-section .about-description {
+        font-size: 0.85rem !important;
+        margin-bottom: 0.75rem !important;
+      }
+
+      #projects.content-section .about-description:last-child {
+        margin-bottom: 1rem !important;
+      }
+
+      #projects.content-section a[href="proiectele-noastre.html"] {
+        max-width: 260px !important;
+      }
+
+      #projects.content-section a[href="proiectele-noastre.html"] div {
+        padding: 0.75rem 1rem !important;
+        font-size: 0.9rem !important;
+        margin-bottom: 1rem !important;
+      }
+
+      #projects.content-section .about-image>div {
+        margin-top: 0.75rem !important;
+      }
+    }
+
+    @media (max-width: 375px) {
+      #projects.content-section {
+        padding: 1rem 0.25rem !important;
+      }
+
+      #projects.content-section .section-title {
+        font-size: 1.4rem !important;
+        margin-bottom: 0.625rem !important;
+      }
+
+      #projects.content-section .about-subtitle {
+        font-size: 1.1rem !important;
+        margin-bottom: 0.625rem !important;
+      }
+
+      #projects.content-section .about-description {
+        font-size: 0.8rem !important;
+        margin-bottom: 0.625rem !important;
+      }
+
+      #projects.content-section .about-description:last-child {
+        margin-bottom: 0.875rem !important;
+      }
+
+      #projects.content-section a[href="proiectele-noastre.html"] {
+        max-width: 240px !important;
+      }
+
+      #projects.content-section a[href="proiectele-noastre.html"] div {
+        padding: 0.625rem 0.875rem !important;
+        font-size: 0.85rem !important;
+        margin-bottom: 0.875rem !important;
+      }
+
+      #projects.content-section .about-image>div {
+        margin-top: 0.625rem !important;
+      }
+    }
+
+    @media (max-width: 320px) {
+      #projects.content-section {
+        padding: 0.875rem 0.125rem !important;
+      }
+
+      #projects.content-section .section-title {
+        font-size: 1.3rem !important;
+        margin-bottom: 0.5rem !important;
+      }
+
+      #projects.content-section .about-subtitle {
+        font-size: 1rem !important;
+        margin-bottom: 0.5rem !important;
+      }
+
+      #projects.content-section .about-description {
+        font-size: 0.75rem !important;
+        margin-bottom: 0.5rem !important;
+      }
+
+      #projects.content-section .about-description:last-child {
+        margin-bottom: 0.75rem !important;
+      }
+
+      #projects.content-section a[href="proiectele-noastre.html"] {
+        max-width: 220px !important;
+      }
+
+      #projects.content-section a[href="proiectele-noastre.html"] div {
+        padding: 0.5rem 0.75rem !important;
+        font-size: 0.8rem !important;
+        margin-bottom: 0.75rem !important;
+      }
+
+      #projects.content-section .about-image>div {
+        margin-top: 0.5rem !important;
+      }
+    }
+
+    /* INCREASE GAP BETWEEN PROIECTE RECENTE AND DE CE SĂ NE ALEGI PE NOI SECTIONS */
+    #projects.content-section {
+      margin-bottom: 8rem !important;
+    }
+
+    @media (max-width: 768px) {
+      #projects.content-section {
+        margin-bottom: 6rem !important;
+      }
+    }
+
+    @media (max-width: 480px) {
+      #projects.content-section {
+        margin-bottom: 5rem !important;
+      }
+    }
+
+    @media (max-width: 375px) {
+      #projects.content-section {
+        margin-bottom: 4rem !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+
+  <!-- Top Contact Bar -->
+  <div class="top-contact-bar">
+    <div class="contact-container">
+      <div class="contact-info">
+        <div class="contact-left">
+          <span class="contact-item">
+            <i class="fas fa-phone" style="color: var(--primary-red);"></i>
+            <a href="tel:+40772240860">+40 772 240 860</a>
+          </span>
+          <span class="contact-item">
+            <i class="fas fa-envelope" style="color: var(--primary-red);"></i>
+            <a href="mailto:office@cirasico.ro">office@cirasico.ro</a>
+          </span>
+          <span class="contact-item">
+            <i class="fas fa-map-marker-alt" style="color: var(--primary-red);"></i>
+            str. Depozitelor, Nr. 2, Năvodari, Constanța
+          </span>
+        </div>
+        <div class="contact-right">
+          <a href="https://www.facebook.com/cirasico/" target="_blank"
+            style="color: var(--light-grey); font-size: 1.5rem; margin-left: 1rem; text-decoration: none; transition: none !important; transform: none !important; scale: none !important; animation: none !important;">
+            <i class="fab fa-facebook"
+              style="transition: none !important; transform: none !important; scale: none !important; animation: none !important;"></i>
+          </a>
+          <a href="https://www.linkedin.com/company/cirasico-srl/" target="_blank" class="linkedin-link"
+            aria-label="Follow us on LinkedIn"
+            style="color: var(--light-grey); font-size: 1.5rem; margin-left: 1rem; text-decoration: none; transition: none !important; transform: none !important; scale: none !important; animation: none !important;">
+            <i class="fab fa-linkedin"
+              style="transition: none !important; transform: none !important; scale: none !important; animation: none !important;"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Navigation Header -->
+  <div class="navigation-header">
+    <div class="nav-container">
+      <div class="nav-content">
+        <div class="nav-logo">
+          <img src="FinalENGlogo.png" alt="CIRASICO Logo - Building for energy" class="logo-image">
+        </div>
+        <nav class="main-navigation">
+          <ul class="nav-menu">
+            <li><a href="#home">Acasă</a></li>
+            <li><a href="#about">Despre noi</a></li>
+            <li><a href="#servicii">Servicii</a></li>
+            <li><a href="#" class="contact-link">Contact</a></li>
+            <li><a href="proiectele-noastre.html">Proiectele Noastre</a></li>
+          </ul>
+        </nav>
+
+
+        <div class="mobile-menu-toggle">
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile Navigation Menu -->
+  <div class="mobile-navigation" id="mobile-navigation">
+    <ul class="mobile-nav-menu">
+      <li><a href="#home">Acasă</a></li>
+      <li><a href="#about">Despre noi</a></li>
+      <li><a href="#servicii">Servicii</a></li>
+      <li><a href="#" class="contact-link">Contact</a></li>
+      <li><a href="proiectele-noastre.html">Proiectele Noastre</a></li>
+    </ul>
+  </div>
+
+  <main id="main" class="site-main">
+
+    <!-- Hero Section -->
+    <section class="hero-section" id="home">
+      <div class="hero-overlay">
+        <div class="hero-white-box">
+          <h1 class="hero-white-title">CIRASICO SRL – Experții tăi în schele din Năvodari, Constanța</h1>
+          <p class="hero-white-text">Oferim servicii sigure, fiabile și complete de montaj, demontare și închiriere
+            schelă industrială, izolații tehnice și protecție anticorozivă – de la proiecte industriale de mari
+            dimensiuni la lucrări specializate la înălțime. Cu livrare rapidă, echipă profesionistă și respect pentru
+            cele mai stricte norme de siguranță, te ajutăm să construiești și să menții cu încredere.</p>
+          <div class="hero-white-buttons">
+            <a href="#about" class="hero-btn">DESPRE NOI</a>
+            <a href="tel:+40772240860" class="hero-btn hero-btn-secondary">+40 772 240 860</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Best Services Section -->
+    <section id="servicii" class="best-services-section">
+      <h2 class="section-title">Serviciile Noastre</h2>
+      <div class="services-grid">
+        <div class="service-card">
+          <h3 class="service-title">Montaj schelă industrială</h3>
+          <p class="service-desc">Oferim <strong>montaj rapid și sigur</strong> de schele industriale, asigurând
+            stabilitate și protecție pe durata lucrărilor tale.</p>
+        </div>
+        <div class="service-card">
+          <h3 class="service-title">Demontare schelă industrială</h3>
+          <p class="service-desc">Asigurăm demontarea <strong>eficientă</strong> și atentă a schelelor, protejând
+            structurile și zona de
+            lucru.</p>
+        </div>
+        <div class="service-card">
+          <h3 class="service-title">Montaj/demontare schelă suspendată</h3>
+          <p class="service-desc">Servicii specializate pentru schele suspendate, ideale pentru lucrări la înălțime cu
+            acces dificil.</p>
+        </div>
+        <div class="service-card">
+          <h3 class="service-title">Izolații termice</h3>
+          <p class="service-desc">Instalăm izolații termice pentru a optimiza <strong>eficiența energetică</strong> și
+            protecția
+            echipamentelor.</p>
+        </div>
+        <div class="service-card">
+          <h3 class="service-title">Refacere izolații termice</h3>
+          <p class="service-desc">Restaurăm și înlocuim izolații deteriorate pentru a menține <strong>performanța și
+              siguranța</strong>
+            instalațiilor.</p>
+        </div>
+        <div class="service-card">
+          <h3 class="service-title">Protecție anticorozivă</h3>
+          <p class="service-desc">Aplicăm <strong>tratamente anticorozive</strong> durabile pentru a prelungi viața
+            structurilor
+            metalice.</p>
+        </div>
+        <div class="service-card">
+          <h3 class="service-title">Sablare și protecție anticorozivă</h3>
+          <p class="service-desc">Curățăm și protejăm rezervoarele industriale împotriva coroziunii.</p>
+        </div>
+        <div class="service-card">
+          <h3 class="service-title">Acces cu ajutorul schelelor</h3>
+          <p class="service-desc">Oferim soluții de acces la înălțime prin schele sau echipe de alpiniști utilitari.</p>
+        </div>
+        <div class="service-card">
+          <h3 class="service-title">Lucrări de construcții industriale</h3>
+          <p class="service-desc">Construim și modernizăm structuri industriale adaptate cerințelor proiectului tău.</p>
+        </div>
+        <div class="service-card">
+          <h3 class="service-title">Lucrări de construcții civile</h3>
+          <p class="service-desc">Executăm <strong>lucrări civile de calitate</strong>, de la fundații până la finisaje.
+          </p>
+        </div>
+        <div class="service-card">
+          <h3 class="service-title">Reparații și modernizări drumuri</h3>
+          <p class="service-desc">Reabilităm și <strong>modernizăm căi de acces</strong> pentru o circulație sigură și
+            eficientă.</p>
+        </div>
+        <div class="service-card">
+          <h3 class="service-title">Executare platforme și parcări</h3>
+          <p class="service-desc">Construim <strong>platforme rezistente</strong> și parcări adaptate nevoilor tale.</p>
+        </div>
+        <div class="service-card">
+          <h3 class="service-title">Reparații și consolidări structurale</h3>
+          <p class="service-desc">Întărim și <strong>recondiționăm structuri</strong> pentru a le prelungi durata de
+            viață.</p>
+        </div>
+        <div class="service-card">
+          <h3 class="service-title">Construcție garduri perimetrale</h3>
+          <p class="service-desc">Instalăm <strong>garduri rezistente</strong> pentru securizarea spațiilor industriale
+            sau civile.</p>
+        </div>
+        <div class="service-card">
+          <h3 class="service-title">Lucrări de mentenanță industrială</h3>
+          <p class="service-desc">Asigurăm întreținerea continuă a instalațiilor și structurilor industriale pentru
+            <strong>funcționare optimă</strong>.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Main Content -->
+    <div class="main-content">
+
+
+
+      <!-- About Section -->
+      <section id="about" class="content-section">
+        <h2 class="section-title">DESPRE CIRASICO</h2>
+        <div class="about-content">
+          <div class="about-text">
+            <h3 class="about-subtitle">Cu peste 16 ani de experiență</h3>
+            <p class="about-description">
+              CIRASICO SRL este partenerul tău de încredere pentru schelă industrială, izolații termice și protecție
+              anticorozivă. Oferim soluții complete pentru proiecte industriale complexe, inclusiv acces la înălțime
+              prin schele sau alpinism utilitar.
+            </p>
+            <p class="about-description">
+              Suntem certificați <strong>EN ISO 9001:2015</strong>, <strong>EN ISO 14001:2015</strong> și <strong>OHSAS
+                18001:2007</strong>, garantând calitate, protecția
+              mediului și siguranță ocupațională la cele mai înalte standarde. Cu o echipă de profesioniști dedicați,
+              livrăm rezultate durabile și sigure, de la planificare la execuție.
+            </p>
+          </div>
+          <div class="about-image">
+            <img src="despreNoi.jpg" alt="CIRASICO Team" class="about-img">
+          </div>
+        </div>
+      </section>
+
+      <!-- PROIECTE RECENTE Section -->
+      <section id="projects" class="content-section"
+        style="background: linear-gradient(135deg, #263238 0%, #607d8b 100%); color: white; padding: 4rem 0; margin: 2rem 0; border-radius: 0; width: 100vw; position: relative; left: 50%; right: 50%; margin-left: -50vw; margin-right: -50vw; box-sizing: border-box;">
+        <div style="max-width: 1200px; margin: 0 auto; padding: 0 2rem;">
+          <h2 class="section-title" style="color: white; text-align: left; margin-bottom: 2rem;">PROIECTE RECENTE</h2>
+          <div class="about-content" style="margin: 0; display: flex; flex-direction: row;">
+            <div class="about-image" style="order: 1; flex: 0 0 450px; position: relative;">
+              <img src="ProiectRecent.jpg" alt="Proiecte Recente" class="about-img"
+                style="border-radius: 0; box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3); width: 100%; height: auto;">
+              <div
+                style="position: absolute; bottom: 20px; left: 20px; display: flex; flex-direction: column; gap: 0.5rem;">
+                <div
+                  style="background: var(--ash-black); color: white; padding: 0.5rem 1rem; border-radius: 6px; font-weight: 600; font-size: 0.9rem; width: fit-content;">
+                  SCHELE
+                </div>
+                <div id="constanta-button"
+                  style="background: var(--primary-red); color: white; padding: 0.5rem 1rem; border-radius: 6px; font-weight: 600; font-size: 0.9rem; width: fit-content; cursor: pointer;"
+                  onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+                  Constanța, Năvodari
+                </div>
+              </div>
+            </div>
+            <div class="about-text" style="color: white; order: 2; flex: 1;">
+              <h3 class="about-subtitle"
+                style="color: white; font-size: 1.8rem; font-weight: 600; margin-bottom: 1.5rem;">Proiecte de succes în
+                România și peste hotare</h3>
+              <div style="width: 500px; height: 2px; background: var(--primary-red); margin-bottom: 1.5rem;"></div>
+              <p class="about-description"
+                style="color: white; font-size: 0.95rem; line-height: 1.8; margin-bottom: 1.5rem; opacity: 0.9;">
+                Executăm cu succes proiecte complexe de montaj schelă industrială, izolații termice și protecție
+                anticorozivă
+                pentru companii din industria petrolieră, chimică, navală, termocentrale, stații hidroelectrice și
+                platforme offshore, atât în România, cât și în afara țării.
+              </p>
+              <p class="about-description"
+                style="color: white; font-size: 0.95rem; line-height: 1.8; margin-bottom: 2rem; opacity: 0.9;">
+                Cu o echipă de ingineri și tehnicieni specializați, livrăm soluții tehnice inovatoare, respectând cele
+                mai stricte standarde de siguranță și calitate. Fiecare proiect este realizat cu atenție la detalii și
+                în conformitate cu termenele de execuție.
+              </p>
+              <div style="margin-top: 2rem; display: flex; justify-content: flex-end;">
+                <a href="proiectele-noastre.html" style="text-decoration: none;">
+                  <div
+                    style="background: var(--primary-red); color: white; padding: 0.75rem 1rem; border-radius: 8px; font-weight: 600; font-size: 0.9rem; display: flex; align-items: center; gap: 0.4rem; width: fit-content;">
+                    <span>PROIECTELE NOASTRE</span>
+                    <i class="fas fa-arrow-right" style="font-size: 0.8rem; opacity: 0.8;"></i>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- DE CE SĂ NE ALEGI PE NOI? Section -->
+      <section id="why-choose-us" class="content-section">
+        <h2 class="section-title">DE CE SĂ NE ALEGI PE NOI?</h2>
+
+        <div class="about-content">
+          <div class="about-text">
+            <p class="about-description">La CIRASICO SRL, punem preț pe comunicare deschisă și colaborare pentru a
+              transforma viziunea ta în realitate, cu atenție la fiecare detaliu. Echipa noastră de ingineri și
+              specialiști oferă soluții sigure și eficiente de montaj schelă industrială, izolații tehnice și protecție
+              anticorozivă pentru proiecte complexe.</p>
+
+            <p class="about-description"><strong>Contactează-ne pentru o ofertă personalizată.</strong></p>
+
+            <!-- Statistics Section -->
+            <div class="stats-section">
+              <div class="stats-grid">
+                <div class="stat-item">
+                  <div class="stat-circle">
+                    <div class="stat-percentage">100%</div>
+                  </div>
+                  <h3 class="stat-title">Siguranță și respectarea normelor</h3>
+                  <div class="progress-bar-container"
+                    style="margin-top: 1rem; position: relative; background: #eceff1; height: 8px; border-radius: 4px; overflow: hidden; display: block; visibility: visible; opacity: 1; border: 1px solid #2196F3;">
+                    <div class="progress-bar"
+                      style="width: 100%; height: 100%; background: linear-gradient(90deg, #d32f2f 0%, #b71c1c 100%); border-radius: 3px; display: block; visibility: visible; opacity: 1; position: relative;">
+                      <span class="progress-text"
+                        style="position: absolute; right: -5px; top: -20px; font-size: 0.9rem; font-weight: 600; color: white; background: #d32f2f; padding: 2px 6px; border-radius: 3px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); display: block; visibility: visible; opacity: 1; z-index: 10;">100%</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="stat-item">
+                  <div class="stat-circle">
+                    <div class="stat-percentage">100%</div>
+                  </div>
+                  <h3 class="stat-title">Aproape 20 de ani de experiență</h3>
+                  <div class="progress-bar-container"
+                    style="margin-top: 1rem; position: relative; background: #eceff1; height: 8px; border-radius: 4px; overflow: hidden; display: block; visibility: visible; opacity: 1; border: 1px solid #2196F3;">
+                    <div class="progress-bar"
+                      style="width: 100%; height: 100%; background: linear-gradient(90deg, #d32f2f 0%, #b71c1c 100%); border-radius: 3px; display: block; visibility: visible; opacity: 1; position: relative;">
+                      <span class="progress-text"
+                        style="position: absolute; right: -5px; top: -20px; font-size: 0.9rem; font-weight: 600; color: white; background: #d32f2f; padding: 2px 6px; border-radius: 3px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); display: block; visibility: visible; opacity: 1; z-index: 10;">100%</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="stat-item">
+                  <div class="stat-circle">
+                    <div class="stat-percentage">97%</div>
+                  </div>
+                  <h3 class="stat-title">Livrare rapidă</h3>
+                  <div class="progress-bar-container"
+                    style="margin-top: 1rem; position: relative; background: #eceff1; height: 8px; border-radius: 4px; overflow: hidden; display: block; visibility: visible; opacity: 1; border: 1px solid #2196F3;">
+                    <div class="progress-bar"
+                      style="width: 97%; height: 100%; background: linear-gradient(90deg, #d32f2f 0%, #b71c1c 100%); border-radius: 3px; display: block; visibility: visible; opacity: 1; position: relative;">
+                      <span class="progress-text"
+                        style="position: absolute; right: -5px; top: -20px; font-size: 0.9rem; font-weight: 600; color: white; background: #d32f2f; padding: 2px 6px; border-radius: 3px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); display: block; visibility: visible; opacity: 1; z-index: 10;">97%</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="stat-item">
+                  <div class="stat-circle">
+                    <div class="stat-percentage">99%</div>
+                  </div>
+                  <h3 class="stat-title">Satisfacția clienților</h3>
+                  <div class="progress-bar-container"
+                    style="margin-top: 1rem; position: relative; background: #eceff1; height: 8px; border-radius: 4px; overflow: hidden; display: block; visibility: visible; opacity: 1; border: 1px solid #2196F3;">
+                    <div class="progress-bar"
+                      style="width: 99%; height: 100%; background: linear-gradient(90deg, #d32f2f 0%, #b71c1c 100%); border-radius: 3px; display: block; visibility: visible; opacity: 1; position: relative;">
+                      <span class="progress-text"
+                        style="position: absolute; right: -5px; top: -20px; font-size: 0.9rem; font-weight: 600; color: white; background: #d32f2f; padding: 2px 6px; border-radius: 3px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); display: block; visibility: visible; opacity: 1; z-index: 10;">99%</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="about-image">
+            <img src="DeceNoi.jpeg" alt="De ce să ne alegi pe noi"
+              style="width: 100%; height: auto; border-radius: 0; box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);">
+          </div>
+        </div>
+      </section>
+
+      <!-- RECOMANDĂRI Section -->
+      <section id="recomandari" class="recomandari-section"
+        style="padding: 4rem 0; background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); margin: 4rem -50vw; width: 100vw; position: relative; left: 50%; right: 50%;">
+        <div class="container" style="max-width: 1200px; margin: 0 auto; padding: 0 2rem;">
+          <h2 class="section-title"
+            style="text-align: center; margin-bottom: 3rem; color: var(--ash-black); font-size: 2.5rem; font-weight: 700;">
+            RECOMANDĂRI</h2>
+
+          <div class="testimonials-carousel" style="position: relative; overflow: hidden;">
+            <div class="testimonials-track" style="display: flex; transition: transform 0.5s ease-in-out; width: 300%;">
+
+              <!-- Testimonial 1 -->
+              <div class="testimonial-card" style="flex: 0 0 33.333%; padding: 0 1rem;">
+                <div class="testimonial-content"
+                  style="background: white; padding: 2.5rem; border-radius: 12px; box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1); height: 100%; display: flex; flex-direction: column; justify-content: space-between;">
+                  <div class="testimonial-text" style="margin-bottom: 2rem;">
+                    <p
+                      style="font-size: 1.1rem; line-height: 1.7; color: var(--ash-black); margin-bottom: 1.5rem; font-style: italic;">
+                      Îmi exprim aprecierea față de colaborarea companiei noastre cu <strong>CIRASICO SRL</strong>
+                      pentru lucrări de montaj schelă suspendată, la cote de peste 40 m, în vederea executării
+                      lucrărilor de întreținere și reparație a echipamentelor.
+                    </p>
+                    <p
+                      style="font-size: 1.1rem; line-height: 1.7; color: var(--ash-black); margin-bottom: 1.5rem; font-style: italic;">
+                      Am ales să lucrăm cu <strong>CIRASICO</strong> datorită promptitudinii cu care a răspuns
+                      solicitărilor noastre, flexibilității și calității serviciilor prestate. Datorită personalului
+                      calificat, lucrările au fost finalizate la termen, respectând normele de siguranță și calitate.
+                    </p>
+                    <p style="font-size: 1.1rem; line-height: 1.7; color: var(--ash-black); font-style: italic;">
+                      În concluzie, recomand compania <strong>CIRASICO</strong> ca fiind un colaborator profesionist și
+                      de încredere și apreciez serviciile sale de calitate, care, în prezent, o diferențiază într-un mod
+                      favorabil de competitorii săi.
+                    </p>
+                  </div>
+                  <div class="testimonial-author"
+                    style="border-top: 2px solid var(--primary-red); padding-top: 1.5rem;">
+                    <h4 style="font-size: 1.2rem; font-weight: 700; color: var(--ash-black); margin: 0 0 0.5rem 0;">
+                      Nicolae Ciortan</h4>
+                    <p style="font-size: 1rem; color: var(--metallic-grey); margin: 0; font-weight: 600;">Director
+                      Tehnic - Comvex</p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Testimonial 2 -->
+              <div class="testimonial-card" style="flex: 0 0 33.333%; padding: 0 1rem;">
+                <div class="testimonial-content"
+                  style="background: white; padding: 2.5rem; border-radius: 12px; box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1); height: 100%; display: flex; flex-direction: column; justify-content: space-between;">
+                  <div class="testimonial-text" style="margin-bottom: 2rem;">
+                    <p
+                      style="font-size: 1.1rem; line-height: 1.7; color: var(--ash-black); margin-bottom: 1.5rem; font-style: italic;">
+                      Prin prezenta confirmăm că <strong>SC CIRASICO SRL</strong> a efectuat lucrări de montaj schelă și
+                      izolații termice la conducte și echipamente, în cadrul lucrărilor contractate de <strong>SC
+                        MOLDOCOR SA</strong> în combinatul Azomureș.
+                    </p>
+                    <p style="font-size: 1.1rem; line-height: 1.7; color: var(--ash-black); font-style: italic;">
+                      Toate aceste lucrări au fost executate în bune condiții, cu respectarea cerințelor de calitate
+                      și siguranță. Datorită respectării termenelor de execuție, a personalului calificat și a
+                      colaborării avute până în prezent, recomandăm compania <strong>CIRASICO</strong> ca fiind un
+                      colaborator de încredere.
+                    </p>
+                  </div>
+                  <div class="testimonial-author"
+                    style="border-top: 2px solid var(--primary-red); padding-top: 1.5rem;">
+                    <h4 style="font-size: 1.2rem; font-weight: 700; color: var(--ash-black); margin: 0 0 0.5rem 0;">
+                      Moldocor SA</h4>
+                    <p style="font-size: 1rem; color: var(--metallic-grey); margin: 0; font-weight: 600;">Manager</p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Testimonial 3 -->
+              <div class="testimonial-card" style="flex: 0 0 33.333%; padding: 0 1rem;">
+                <div class="testimonial-content"
+                  style="background: white; padding: 2.5rem; border-radius: 12px; box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1); height: 100%; display: flex; flex-direction: column; justify-content: space-between;">
+                  <div class="testimonial-text" style="margin-bottom: 2rem;">
+                    <p
+                      style="font-size: 1.1rem; line-height: 1.7; color: var(--ash-black); margin-bottom: 1.5rem; font-style: italic;">
+                      Ne exprimăm aprecierea față de colaborarea firmei noastre, <strong>SC ROMINSERV SRL</strong>, cu
+                      <strong>SC CIRASICO SRL</strong>.
+                    </p>
+                    <p
+                      style="font-size: 1.1rem; line-height: 1.7; color: var(--ash-black); margin-bottom: 1.5rem; font-style: italic;">
+                      Am ales să colaborăm cu <strong>SC CIRASICO SRL</strong> pentru instruirea și implementarea
+                      standardelor de <strong>Securitate și Sănătate în Muncă</strong>, precum și a standardelor pentru
+                      <strong>Situații de Urgență</strong>, deoarece atât managementul, cât și angajații companiei își
+                      aduc aportul și contribuția la susținerea tuturor acțiunilor pe care le întreprindem în cadrul
+                      proiectului <strong>„1 Life. 1 Viață."</strong>
+                    </p>
+                    <p style="font-size: 1.1rem; line-height: 1.7; color: var(--ash-black); font-style: italic;">
+                      În concluzie, recomandăm compania <strong>SC CIRASICO SRL</strong> ca fiind un colaborator
+                      profesionist și de încredere pentru orice partener de afaceri și apreciem interesul constant
+                      acordat acțiunilor de siguranță inițiate de <strong>Subcomitetul de Subcontractori</strong>.
+                    </p>
+                  </div>
+                  <div class="testimonial-author"
+                    style="border-top: 2px solid var(--primary-red); padding-top: 1.5rem;">
+                    <h4 style="font-size: 1.2rem; font-weight: 700; color: var(--ash-black); margin: 0 0 0.5rem 0;">Nitu
+                      Mironel</h4>
+                    <p style="font-size: 1rem; color: var(--metallic-grey); margin: 0; font-weight: 600;">Director
+                      Operational - Rominserv SRL</p>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Navigation Arrows -->
+          <div class="carousel-nav" style="display: flex; justify-content: center; gap: 2rem; margin-top: 3rem;">
+            <button class="nav-arrow prev-arrow"
+              style="background: var(--primary-red); color: white; border: none; width: 50px; height: 50px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(211, 47, 47, 0.3);">
+              <i class="fas fa-chevron-left"></i>
+            </button>
+            <button class="nav-arrow next-arrow"
+              style="background: var(--primary-red); color: white; border: none; width: 50px; height: 50px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(211, 47, 47, 0.3);">
+              <i class="fas fa-chevron-right"></i>
+            </button>
+          </div>
+
+          <!-- Dots Indicator -->
+          <div class="carousel-dots" style="display: flex; justify-content: center; gap: 0.5rem; margin-top: 2rem;">
+            <span class="dot active" data-slide="0"
+              style="width: 12px; height: 12px; border-radius: 50%; background: var(--primary-red); cursor: pointer; transition: all 0.3s ease;"></span>
+            <span class="dot" data-slide="1"
+              style="width: 12px; height: 12px; border-radius: 50%; background: #ddd; cursor: pointer; transition: all 0.3s ease;"></span>
+            <span class="dot" data-slide="2"
+              style="width: 12px; height: 12px; border-radius: 50%; background: #ddd; cursor: pointer; transition: all 0.3s ease;"></span>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer id="colophon" class="site-footer">
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>Contact</h3>
+        <p>
+          <i class="fas fa-map-marker-alt" style="margin-right: 0.5rem; color: var(--primary-red);"></i>
+          str. Depozitelor, Nr. 2, Năvodari, Constanța
+        </p>
+        <p>
+          <i class="fas fa-phone" style="margin-right: 0.5rem; color: var(--primary-red);"></i>
+          <a href="tel:+40772240860"
+            style="color: white !important; text-decoration: none !important; transition: none !important;">+40 772 240
+            860</a>
+        </p>
+        <p>
+          <i class="fas fa-envelope" style="margin-right: 0.5rem; color: var(--primary-red);"></i>
+          <a href="mailto:office@cirasico.ro"
+            style="color: white !important; text-decoration: none !important; transition: none !important;">office@cirasico.ro</a>
+        </p>
+      </div>
+
+      <div class="footer-section">
+        <h3>PAGINI</h3>
+        <ul style="list-style: none; padding: 0; margin: 0;">
+          <li style="margin-bottom: 0.5rem;"><a href="#home"
+              style="color: white !important; text-decoration: none !important; transition: none !important;">Acasă</a>
+          </li>
+          <li style="margin-bottom: 0.5rem;"><a href="#about"
+              style="color: white !important; text-decoration: none !important; transition: none !important;">Despre
+              noi</a></li>
+          <li style="margin-bottom: 0.5rem;"><a href="#servicii"
+              style="color: white !important; text-decoration: none !important; transition: none !important;">Servicii</a>
+          </li>
+          <li style="margin-bottom: 0.5rem;"><a href="proiectele-noastre.html"
+              style="color: white !important; text-decoration: none !important; transition: none !important;">Proiectele
+              noastre</a></li>
+          <li style="margin-bottom: 0.5rem;"><a href="#contact"
+              style="color: white !important; text-decoration: none !important; transition: none !important;">Contact</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="footer-section">
+        <h3>Urmărește-ne</h3>
+        <div class="social-links" style="display: flex; gap: 1rem; margin-top: 1rem;">
+          <a href="https://www.facebook.com/cirasico/" target="_blank"
+            style="color: var(--light-grey); font-size: 1.5rem; text-decoration: none; transition: none !important; transform: none !important; scale: none !important; animation: none !important;">
+            <i class="fab fa-facebook"
+              style="transition: none !important; transform: none !important; scale: none !important; animation: none !important;"></i>
+          </a>
+          <a href="https://www.linkedin.com/company/cirasico-srl/" target="_blank"
+            style="color: var(--light-grey); font-size: 1.5rem; text-decoration: none; transition: none !important; transform: none !important; scale: none !important; animation: none !important;">
+            <i class="fab fa-linkedin"
+              style="transition: none !important; transform: none !important; scale: none !important; animation: none !important;"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2025 CIRASICO SRL. Toate drepturile rezervate.</p>
+
+    </div>
+  </footer>
+
+  <!-- Back to Top Button -->
+  <button id="back-to-top">
+    <i class="fas fa-arrow-up"></i>
+  </button>
+
+  <script>
+    // Mobile menu functionality
+    document.addEventListener('DOMContentLoaded', function () {
+      const mobileToggle = document.querySelector('.mobile-menu-toggle');
+      const mobileNav = document.querySelector('.mobile-navigation');
+
+      if (mobileToggle && mobileNav) {
+        mobileToggle.addEventListener('click', function () {
+          const isExpanded = this.getAttribute('aria-expanded') === 'true';
+          this.setAttribute('aria-expanded', !isExpanded);
+          mobileNav.style.display = isExpanded ? 'none' : 'block';
+          this.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking on a link
+        const mobileLinks = mobileNav.querySelectorAll('a');
+        mobileLinks.forEach(link => {
+          link.addEventListener('click', function () {
+            mobileNav.style.display = 'none';
+            mobileToggle.classList.remove('active');
+            mobileToggle.setAttribute('aria-expanded', 'false');
+          });
+        });
+      }
+
+      // Smooth scrolling
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute('href'));
+          if (target) {
+            target.scrollIntoView({
+              behavior: 'smooth',
+              block: 'start'
+            });
+          }
+        });
+      });
+
+      // Back to top functionality
+      const backToTopButton = document.getElementById('back-to-top');
+
+      if (backToTopButton) {
+        window.addEventListener('scroll', function () {
+          if (window.pageYOffset > 300) {
+            backToTopButton.style.display = 'flex';
+          } else {
+            backToTopButton.style.display = 'none';
+          }
+        });
+
+        backToTopButton.addEventListener('click', function () {
+          window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+          });
+        });
+      }
+
+      // Custom smooth scroll function for Constanța, Năvodari button
+      window.smoothScrollToTop = function () {
+        console.log('smoothScrollToTop function called!');
+        const heroSection = document.getElementById('home');
+        if (heroSection) {
+          console.log('Hero section found, scrolling...');
+          const currentPosition = window.pageYOffset;
+          const targetPosition = heroSection.offsetTop;
+          const distance = targetPosition - currentPosition;
+          const duration = 1500; // 1.5 seconds for smooth sliding
+          let start = null;
+
+          function animation(currentTime) {
+            if (start === null) start = currentTime;
+            const timeElapsed = currentTime - start;
+            const run = easeInOutCubic(timeElapsed, currentPosition, distance, duration);
+            window.scrollTo(0, run);
+            if (timeElapsed < duration) requestAnimationFrame(animation);
+          }
+
+          function easeInOutCubic(t, b, c, d) {
+            t /= d / 2;
+            if (t < 1) return c / 2 * t * t * t + b;
+            t -= 2;
+            return c / 2 * (t * t * t + 2) + b;
+          }
+
+          requestAnimationFrame(animation);
+        } else {
+          console.log('Hero section not found!');
+        }
+      };
+
+      // Add click event listener to Constanța, Năvodari button
+      document.addEventListener('DOMContentLoaded', function () {
+        console.log('DOM loaded, looking for constanta button...');
+        const constantaButton = document.getElementById('constanta-button');
+        if (constantaButton) {
+          console.log('Constanta button found, adding click listener...');
+          constantaButton.addEventListener('click', function () {
+            console.log('Button clicked!');
+            smoothScrollToTop();
+          });
+        } else {
+          console.log('Constanta button NOT found!');
+        }
+      });
+
+      // Testimonials Carousel Functionality
+      const testimonialsTrack = document.querySelector('.testimonials-track');
+      const prevArrow = document.querySelector('.prev-arrow');
+      const nextArrow = document.querySelector('.next-arrow');
+      const dots = document.querySelectorAll('.dot');
+      let currentSlide = 0;
+      const totalSlides = 3;
+
+      function updateCarousel() {
+        const translateX = -currentSlide * 33.333;
+        testimonialsTrack.style.transform = `translateX(${translateX}%)`;
+
+        // Update dots - remove active class from all dots first
+        dots.forEach((dot, index) => {
+          if (index === currentSlide) {
+            dot.style.background = 'var(--primary-red)';
+          } else {
+            dot.style.background = '#ddd';
+          }
+        });
+      }
+
+      function nextSlide() {
+        currentSlide = (currentSlide + 1) % totalSlides;
+        updateCarousel();
+      }
+
+      function prevSlide() {
+        currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+        updateCarousel();
+      }
+
+      // Auto-slide every 5 seconds
+      let autoSlideInterval = setInterval(nextSlide, 5000);
+
+      // Event listeners
+      if (nextArrow) {
+        nextArrow.addEventListener('click', () => {
+          clearInterval(autoSlideInterval);
+          nextSlide();
+          autoSlideInterval = setInterval(nextSlide, 5000);
+        });
+      }
+
+      if (prevArrow) {
+        prevArrow.addEventListener('click', () => {
+          clearInterval(autoSlideInterval);
+          prevSlide();
+          autoSlideInterval = setInterval(nextSlide, 5000);
+        });
+      }
+
+      // Dot navigation
+      dots.forEach((dot, index) => {
+        dot.addEventListener('click', () => {
+          clearInterval(autoSlideInterval);
+          currentSlide = index;
+          updateCarousel();
+          autoSlideInterval = setInterval(nextSlide, 5000);
+        });
+      });
+
+      // Pause auto-slide on hover
+      const carousel = document.querySelector('.testimonials-carousel');
+      if (carousel) {
+        carousel.addEventListener('mouseenter', () => clearInterval(autoSlideInterval));
+        carousel.addEventListener('mouseleave', () => {
+          autoSlideInterval = setInterval(nextSlide, 5000);
+        });
+      }
+
+    });
+
+    // Smooth scrolling for contact links
+    document.addEventListener('DOMContentLoaded', function () {
+      const contactLinks = document.querySelectorAll('a.contact-link, a[href="#contact"]');
+
+      contactLinks.forEach(link => {
+        link.addEventListener('click', function (e) {
+          e.preventDefault();
+
+          // Scroll to footer contact section on the same page
+          const footer = document.querySelector('footer');
+          if (footer) {
+            footer.scrollIntoView({
+              behavior: 'smooth',
+              block: 'start'
+            });
+          }
+        });
+      });
+    });
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="ro">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CIRASICO Modern - Demo</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- Theme Styles -->
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    /* Demo-specific styles */
+    .demo-notice {
+      background: linear-gradient(135deg, #d32f2f 0%, #b71c1c 100%);
+      color: white;
+      text-align: center;
+      padding: 1rem;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 10000;
+      font-weight: 600;
+    }
+
+    .demo-notice a {
+      color: white;
+      text-decoration: underline;
+    }
+
+    body {
+      padding-top: 60px;
+    }
+
+    .demo-controls {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: white;
+      padding: 1rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+      z-index: 1000;
+    }
+
+    .demo-controls button {
+      background: var(--primary-red);
+      color: white;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 6px;
+      cursor: pointer;
+      margin: 0.25rem;
+      font-size: 0.9rem;
+    }
+
+    .demo-controls button:hover {
+      background: var(--secondary-red);
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Demo Notice -->
+  <div class="demo-notice">
+    🎨 <strong>+40 772 240 860 office@cirasico.ro str. Depozitelor, Nr. 2, Năvodari, jud. Constanța</strong>
+  </div>
+
+  <!-- Header -->
+  <header id="masthead" class="site-header">
+    <div class="header-container">
+      <div class="site-branding">
+        <h1 class="site-title">
+          <a href="#" rel="home">CIRASICO</a>
+        </h1>
+        <p class="site-description">Compania de Investiții și Reprezentanță Asigurări și Servicii Comerciale</p>
+      </div>
+
+      <nav id="site-navigation" class="main-navigation">
+        <ul class="main-navigation">
+          <li><a href="#home">Acasă</a></li>
+          <li><a href="#about">Despre</a></li>
+          <li><a href="#services">Servicii</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+
+        <button class="mobile-menu-toggle" aria-controls="primary-menu" aria-expanded="false">
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Mobile Navigation -->
+  <div class="mobile-navigation" style="display: none;">
+    <ul class="mobile-menu">
+      <li><a href="#home">Acasă</a></li>
+      <li><a href="#about">Despre</a></li>
+      <li><a href="#services">Servicii</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+
+  <main id="main" class="site-main">
+
+    <!-- Hero Section -->
+    <section class="hero-section" id="home">
+      <div class="hero-content">
+        <h1 class="hero-title">CIRASICO</h1>
+        <p class="hero-subtitle">Compania de Investiții și Reprezentanță Asigurări și Servicii Comerciale</p>
+        <a href="#services" class="cta-button">Descoperă Serviciile Noastre</a>
+      </div>
+    </section>
+
+    <!-- Main Content -->
+    <div class="main-content">
+
+      <!-- Services Section -->
+      <section id="services" class="content-section">
+        <h2 class="section-title">Serviciile Noastre</h2>
+        <div class="cards-grid">
+          <div class="card">
+            <div class="card-icon">💰</div>
+            <h3 class="card-title">Investiții</h3>
+            <div class="card-content">
+              <p>Servicii complete de consultanță în investiții, managementul portofoliului
+                și strategii de creștere pentru afacerea dumneavoastră.</p>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-icon">🛡️</div>
+            <h3 class="card-title">Reprezentanță Asigurări</h3>
+            <div class="card-content">
+              <p>Reprezentanță autorizată pentru produse de asigurări, oferind protecție
+                completă pentru afacerea și activele dumneavoastră.</p>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-icon">🤝</div>
+            <h3 class="card-title">Servicii Comerciale</h3>
+            <div class="card-content">
+              <p>Servicii de reprezentare comercială, dezvoltare de afaceri și
+                strategii de marketing pentru creșterea vânzărilor.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- About Section -->
+      <section id="about" class="content-section">
+        <h2 class="section-title">Despre CIRASICO</h2>
+        <div class="cards-grid">
+          <div class="card">
+            <div class="card-icon">🏢</div>
+            <h3 class="card-title">Compania Noastră</h3>
+            <div class="card-content">
+              <p>CIRASICO este o companie specializată în investiții, reprezentanță asigurări și servicii comerciale,
+                oferind soluții complete pentru nevoile afacerii dumneavoastră.</p>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-icon">🎯</div>
+            <h3 class="card-title">Misiunea Noastră</h3>
+            <div class="card-content">
+              <p>Să oferim servicii de calitate superioară, bazate pe experiență și inovație,
+                pentru a susține creșterea și dezvoltarea afacerilor clienților noștri.</p>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-icon">⭐</div>
+            <h3 class="card-title">Valorile Noastre</h3>
+            <div class="card-content">
+              <p>Profesionalism, integritate, inovație și angajament față de succesul clienților noștri
+                sunt valorile care ne definesc și ne conduc în fiecare zi.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact Section -->
+      <section id="contact" class="content-section">
+        <h2 class="section-title">Contact</h2>
+        <div class="cards-grid">
+          <div class="card">
+            <div class="card-icon">📍</div>
+            <h3 class="card-title">Adresa</h3>
+            <div class="card-content">
+              <p>România<br>
+                București</p>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-icon">📞</div>
+            <h3 class="card-title">Telefon</h3>
+            <div class="card-content">
+              <p>+40 XXX XXX XXX</p>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-icon">✉️</div>
+            <h3 class="card-title">Email</h3>
+            <div class="card-content">
+              <p>contact@cirasico.ro</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer id="colophon" class="site-footer">
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>Despre CIRASICO</h3>
+        <p>Compania de Investiții și Reprezentanță Asigurări și Servicii Comerciale,
+          oferind soluții complete pentru nevoile afacerii dumneavoastră din 2013.</p>
+      </div>
+
+      <div class="footer-section">
+        <h3>Serviciile Noastre</h3>
+        <ul style="list-style: none; padding: 0;">
+          <li style="margin-bottom: 0.5rem;">
+            <a href="#services">Investiții</a>
+          </li>
+          <li style="margin-bottom: 0.5rem;">
+            <a href="#services">Reprezentanță Asigurări</a>
+          </li>
+          <li style="margin-bottom: 0.5rem;">
+            <a href="#services">Servicii Comerciale</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="footer-section">
+        <h3>Contact</h3>
+        <p>
+          <i class="fas fa-map-marker-alt" style="margin-right: 0.5rem; color: var(--primary-red);"></i>
+          România, București
+        </p>
+        <p>
+          <i class="fas fa-phone" style="margin-right: 0.5rem; color: var(--primary-red);"></i>
+          +40 XXX XXX XXX
+        </p>
+        <p>
+          <i class="fas fa-envelope" style="margin-right: 0.5rem; color: var(--primary-red);"></i>
+          <a href="mailto:contact@cirasico.ro">contact@cirasico.ro</a>
+        </p>
+      </div>
+
+      <div class="footer-section">
+        <h3>Urmărește-ne</h3>
+        <div class="social-links" style="display: flex; gap: 1rem; margin-top: 1rem;">
+          <a href="#" style="color: var(--light-grey); font-size: 1.5rem; transition: color 0.3s ease;">
+            <i class="fab fa-facebook"></i>
+          </a>
+          <a href="#" style="color: var(--light-grey); font-size: 1.5rem; transition: color 0.3s ease;">
+            <i class="fab fa-linkedin"></i>
+          </a>
+          <a href="#" style="color: var(--light-grey); font-size: 1.5rem; transition: color 0.3s ease;">
+            <i class="fab fa-twitter"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2024 CIRASICO. Toate drepturile rezervate.</p>
+      <p style="margin-top: 0.5rem; font-size: 0.9rem;">
+        Dezvoltat cu <i class="fas fa-heart" style="color: var(--primary-red);"></i> pentru afacerea dumneavoastră
+      </p>
+    </div>
+  </footer>
+
+  <!-- Back to Top Button -->
+  <button id="back-to-top" style="
+        position: fixed;
+        bottom: 2rem;
+        right: 2rem;
+        background: var(--primary-red);
+        color: var(--white);
+        border: none;
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        cursor: pointer;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.2rem;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        transition: all 0.3s ease;
+        z-index: 1000;
+    ">
+    <i class="fas fa-arrow-up"></i>
+  </button>
+
+  <!-- Demo Controls -->
+  <div class="demo-controls">
+    <button onclick="toggleMobile()">📱 Mobile View</button>
+    <button onclick="toggleTablet()">📱 Tablet View</button>
+    <button onclick="resetView()">🖥️ Desktop View</button>
+  </div>
+
+  <script>
+    // Mobile menu functionality
+    document.addEventListener('DOMContentLoaded', function () {
+      const mobileToggle = document.querySelector('.mobile-menu-toggle');
+      const mobileNav = document.querySelector('.mobile-navigation');
+
+      if (mobileToggle && mobileNav) {
+        mobileToggle.addEventListener('click', function () {
+          const isExpanded = this.getAttribute('aria-expanded') === 'true';
+          this.setAttribute('aria-expanded', !isExpanded);
+          mobileNav.style.display = isExpanded ? 'none' : 'block';
+          this.classList.toggle('active');
+        });
+      }
+
+      // Smooth scrolling
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute('href'));
+          if (target) {
+            target.scrollIntoView({
+              behavior: 'smooth',
+              block: 'start'
+            });
+          }
+        });
+      });
+
+      // Back to top functionality
+      const backToTopButton = document.getElementById('back-to-top');
+
+      if (backToTopButton) {
+        window.addEventListener('scroll', function () {
+          if (window.pageYOffset > 300) {
+            backToTopButton.style.display = 'flex';
+          } else {
+            backToTopButton.style.display = 'none';
+          }
+        });
+
+        backToTopButton.addEventListener('click', function () {
+          window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+          });
+        });
+      }
+    });
+
+    // Demo controls
+    function toggleMobile() {
+      document.body.style.width = '375px';
+      document.body.style.margin = '0 auto';
+      document.body.style.border = '2px solid #ccc';
+      document.body.style.borderTop = 'none';
+      document.body.style.borderBottom = 'none';
+    }
+
+    function toggleTablet() {
+      document.body.style.width = '768px';
+      document.body.style.margin = '0 auto';
+      document.body.style.border = '2px solid #ccc';
+      document.body.style.borderTop = 'none';
+      document.body.style.borderBottom = 'none';
+    }
+
+    function resetView() {
+      document.body.style.width = '';
+      document.body.style.margin = '';
+      document.body.style.border = '';
+    }
+  </script>
+</body>
+
+</html>

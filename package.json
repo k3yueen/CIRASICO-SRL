@@ -1,0 +1,22 @@
+{
+  "name": "cirasico-modern-theme",
+  "version": "2.0.0",
+  "description": "Modern WordPress theme for CIRASICO",
+  "main": "index.php",
+  "scripts": {
+    "start": "php -S localhost:8000",
+    "dev": "php -S localhost:8000",
+    "serve": "php -S localhost:8000"
+  },
+  "keywords": [
+    "wordpress",
+    "theme",
+    "cirasico",
+    "modern",
+    "responsive"
+  ],
+  "author": "CIRASICO Team",
+  "license": "Proprietary",
+  "devDependencies": {},
+  "dependencies": {}
+}

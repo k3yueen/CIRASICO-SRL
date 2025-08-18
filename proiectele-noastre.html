@@ -1,0 +1,969 @@
+<!DOCTYPE html>
+<html lang="ro">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PROIECTELE NOASTRE - CIRASICO SRL</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    /* Reset and Base Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      color: #2c3e50;
+      background-color: #ffffff;
+      font-size: 16px;
+      scroll-behavior: smooth;
+    }
+
+    /* Color Variables - Professional Construction Theme */
+    :root {
+      --primary-red: #e74c3c;
+      --secondary-red: #c0392b;
+      --accent-orange: #f39c12;
+      --metallic-grey: #34495e;
+      --light-grey: #ecf0f1;
+      --ash-black: #2c3e50;
+      --white: #ffffff;
+      --dark-blue: #2c3e50;
+      --shadow: rgba(0, 0, 0, 0.08);
+      --shadow-hover: rgba(0, 0, 0, 0.15);
+      --border-color: #161718;
+    }
+
+    body {
+      padding-top: 0;
+    }
+
+    /* Top Contact Bar - Professional Style */
+    .top-contact-bar {
+      background: linear-gradient(135deg, var(--dark-blue) 0%, var(--metallic-grey) 100%);
+      color: var(--white);
+      padding: 1rem 0;
+      position: sticky;
+      top: 0;
+      z-index: 999;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .contact-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    .contact-info {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .contact-left,
+    .contact-right {
+      display: flex;
+      align-items: center;
+      gap: 2.5rem;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-size: 0.95rem;
+      font-weight: 500;
+    }
+
+    .contact-item i {
+      color: var(--white);
+      font-size: 1.1rem;
+      width: 20px;
+      text-align: center;
+    }
+
+    .contact-item a {
+      color: var(--white);
+      text-decoration: none;
+      transition: all 0.3s ease;
+      font-weight: 500;
+    }
+
+    .contact-item a:hover {
+      color: var(--primary-red);
+      transform: translateY(-1px);
+    }
+
+    .linkedin-link {
+      color: var(--white);
+      font-size: 1.6rem;
+      transition: all 0.3s ease;
+    }
+
+    .linkedin-link:hover {
+      color: var(--accent--secondary-red);
+      transform: scale(1.1);
+    }
+
+    /* Navigation Header - Professional Style */
+    .navigation-header {
+      background: var(--white);
+      border-bottom: 1px solid var(--border-color);
+      padding: 1.25rem 0;
+      position: sticky;
+      top: 60px;
+      z-index: 998;
+      box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+      margin: 0;
+    }
+
+    .nav-container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    .nav-content {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      gap: 2rem;
+    }
+
+    .nav-logo {
+      flex-shrink: 0;
+      margin-left: -0.5rem;
+    }
+
+    .logo-image {
+      height: 100px;
+      width: auto;
+      max-width: 320px;
+      filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+    }
+
+    .main-navigation {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      margin-left: 2rem;
+    }
+
+    .nav-menu {
+      display: flex;
+      list-style: none;
+      gap: 2rem;
+      margin: 0;
+      padding: 0;
+    }
+
+    .nav-menu li a {
+      color: var(--ash-black);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.7rem;
+      transition: all 0.3s ease;
+      padding: 0.4rem 0.5rem;
+      position: relative;
+      border-radius: 6px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .nav-menu li a:hover {
+      color: var(--primary-red);
+      background: rgba(231, 76, 60, 0.05);
+    }
+
+    .nav-menu li a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 0;
+      height: 2px;
+      background: var(--primary-red);
+      transition: width 0.3s ease;
+    }
+
+    .nav-menu li a:hover::after {
+      width: 100%;
+    }
+
+    .mobile-menu-toggle {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      gap: 4px;
+    }
+
+    .hamburger-line {
+      width: 25px;
+      height: 3px;
+      background: var(--ash-black);
+      transition: all 0.3s ease;
+    }
+
+    /* Main Content */
+    .main-content {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 5rem 2rem;
+    }
+
+    .section-title {
+      font-size: 2.5rem;
+      color: var(--ash-black);
+      margin-bottom: 3rem;
+      text-align: left;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 4px;
+      background: linear-gradient(90deg, var(--primary-red), var(--secondary-red));
+      border-radius: 2px;
+    }
+
+    /* Projects Grid */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .project-card {
+      background: var(--white);
+      border-radius: 12px;
+      padding: 2rem;
+      box-shadow: 0 4px 20px var(--shadow);
+      transition: all 0.3s ease;
+      border: 1px solid var(--light-grey);
+    }
+
+    .project-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+    }
+
+    .project-icon {
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(135deg, var(--primary-red), var(--secondary-red));
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.5rem;
+      color: var(--white);
+      font-size: 1.5rem;
+    }
+
+    .project-title {
+      font-size: 1.5rem;
+      color: var(--ash-black);
+      margin-bottom: 1rem;
+      font-weight: 600;
+    }
+
+    .project-description {
+      color: var(--metallic-grey);
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
+    }
+
+    .project-location {
+      color: var(--primary-red);
+      font-weight: 600;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    /* Project Gallery */
+    .project-gallery {
+      padding: 2rem 0;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    .gallery-item {
+      width: 100%;
+    }
+
+    .gallery-image {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+      transition: all 0.3s ease;
+    }
+
+    .gallery-image:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 35px rgba(0, 0, 0, 0.2);
+    }
+
+
+
+    /* Mobile Navigation Menu */
+    .mobile-navigation {
+      display: none;
+      position: fixed;
+      top: 160px;
+      left: 0;
+      right: 0;
+      background: var(--white);
+      border-bottom: 1px solid var(--border-color);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      z-index: 999;
+      max-height: calc(100vh - 160px);
+      overflow-y: auto;
+    }
+
+    .mobile-nav-menu {
+      list-style: none;
+      margin: 0;
+      padding: 1rem 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .mobile-nav-menu li {
+      border-bottom: 1px solid var(--light-grey);
+    }
+
+    .mobile-nav-menu li:last-child {
+      border-bottom: none;
+    }
+
+    .mobile-nav-menu li a {
+      display: block;
+      padding: 1rem 2rem;
+      color: var(--ash-black);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      transition: all 0.3s ease;
+      border: 1px solid transparent;
+    }
+
+    .mobile-nav-menu li:first-child a {
+      border-top: 1px solid var(--light-grey);
+    }
+
+    .mobile-nav-menu li a:hover {
+      background: rgba(231, 76, 60, 0.05);
+      color: var(--primary-red);
+    }
+
+    /* Back to Top Button - Professional Style */
+    #back-to-top {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      background: linear-gradient(135deg, var(--primary-red), var(--secondary-red));
+      color: var(--white);
+      border: none;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      cursor: pointer;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      box-shadow: 0 6px 20px rgba(231, 76, 60, 0.3);
+      transition: all 0.3s ease;
+      z-index: 1000;
+    }
+
+    #back-to-top:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(231, 76, 60, 0.4);
+    }
+
+    /* Footer - Professional Style */
+    .site-footer {
+      background: linear-gradient(135deg, var(--ash-black) 0%, var(--metallic-grey) 100%);
+      color: var(--white);
+      padding: 4rem 0 2rem;
+      position: relative;
+    }
+
+    .site-footer::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--primary-red), var(--accent-orange));
+    }
+
+    .footer-content {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 3rem;
+    }
+
+    .footer-section h3 {
+      color: var(--accent-orange);
+      margin-bottom: 1.5rem;
+      font-size: 1.4rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .footer-services-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .footer-section p,
+    .footer-section a {
+      color: var(--light-grey);
+      text-decoration: none;
+      line-height: 1.8;
+      font-size: 1rem;
+    }
+
+    .footer-section a:hover {
+      color: var(--accent-orange);
+      transform: translateX(5px);
+      transition: all 0.3s ease;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid var(--metallic-grey);
+      margin-top: 3rem;
+      padding-top: 2rem;
+      text-align: center;
+      color: var(--light-grey);
+      font-size: 0.95rem;
+    }
+
+    /* MOBILE-FIRST GALLERY RESPONSIVE CSS */
+    @media (max-width: 1200px) {
+      .gallery-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 1rem !important;
+        padding: 0 1.5rem !important;
+      }
+
+      .gallery-image {
+        width: 100% !important;
+        height: 300px !important;
+      }
+    }
+
+    @media (max-width: 991px) {
+      .gallery-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 0.875rem !important;
+        padding: 0 1.25rem !important;
+      }
+
+      .gallery-image {
+        height: 280px !important;
+      }
+    }
+
+    @media (max-width: 767px) {
+      .gallery-grid {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 1.5rem !important;
+        padding: 0 1rem !important;
+        max-width: 100% !important;
+        margin: 0 !important;
+        justify-content: flex-start !important;
+      }
+
+      .gallery-item {
+        width: 100% !important;
+        max-width: 100% !important;
+      }
+
+      .gallery-image {
+        width: 100% !important;
+        height: 250px !important;
+        object-fit: cover !important;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1) !important;
+      }
+
+      .content-section {
+        padding: 0 1rem !important;
+      }
+
+      .section-title {
+        padding-left: 1rem !important;
+        font-size: 2rem !important;
+        margin-bottom: 2rem !important;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .gallery-grid {
+        gap: 1.25rem !important;
+        padding: 0 0.75rem !important;
+      }
+
+      .gallery-image {
+        height: 220px !important;
+      }
+
+      .section-title {
+        padding-left: 0.75rem !important;
+        font-size: 1.8rem !important;
+        margin-bottom: 1.75rem !important;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .gallery-grid {
+        gap: 1rem !important;
+        padding: 0 0.5rem !important;
+      }
+
+      .gallery-image {
+        height: 200px !important;
+      }
+
+      .section-title {
+        padding-left: 0.5rem !important;
+        font-size: 1.6rem !important;
+        margin-bottom: 1.5rem !important;
+      }
+    }
+
+    @media (max-width: 375px) {
+      .gallery-grid {
+        gap: 0.875rem !important;
+        padding: 0 0.25rem !important;
+      }
+
+      .gallery-image {
+        height: 180px !important;
+      }
+
+      .section-title {
+        padding-left: 0.25rem !important;
+        font-size: 1.5rem !important;
+        margin-bottom: 1.25rem !important;
+      }
+    }
+
+    @media (max-width: 320px) {
+      .gallery-grid {
+        gap: 0.75rem !important;
+        padding: 0 0.125rem !important;
+      }
+
+      .gallery-image {
+        height: 160px !important;
+      }
+
+      .section-title {
+        padding-left: 0.125rem !important;
+        font-size: 1.4rem !important;
+        margin-bottom: 1rem !important;
+      }
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .top-contact-bar {
+        padding: 0.75rem 0;
+      }
+
+      .contact-info {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+      }
+
+      .contact-left {
+        display: none;
+      }
+
+      .contact-right {
+        justify-content: flex-end;
+        gap: 1rem;
+      }
+
+      .contact-item {
+        font-size: 0.9rem;
+      }
+
+      .linkedin-link {
+        font-size: 2rem;
+        margin-top: 0.5rem;
+      }
+
+      .contact-info {
+        flex-direction: row;
+        justify-content: space-between;
+        gap: 1rem;
+        text-align: left;
+      }
+
+      .contact-left {
+        display: none !important;
+      }
+
+      .contact-right {
+        justify-content: flex-end !important;
+        gap: 1rem !important;
+        width: auto !important;
+      }
+
+      /* Navigation Header Mobile */
+      .navigation-header {
+        top: 50px;
+        padding: 1rem 0;
+      }
+
+      .nav-content {
+        flex-direction: row;
+        justify-content: center;
+        gap: 1rem;
+        position: relative;
+      }
+
+      .main-navigation {
+        display: none;
+      }
+
+      .mobile-menu-toggle {
+        display: flex !important;
+        position: absolute;
+        right: 0;
+      }
+
+      .nav-logo {
+        order: 1;
+      }
+
+      .logo-image {
+        height: 80px;
+      }
+
+      .section-title {
+        font-size: 2rem;
+      }
+
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .section-title {
+        font-size: 1.8rem;
+      }
+
+      .contact-container,
+      .nav-container {
+        padding: 0 1rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Top Contact Bar -->
+  <div class="top-contact-bar">
+    <div class="contact-container">
+      <div class="contact-info">
+        <div class="contact-left">
+          <span class="contact-item">
+            <i class="fas fa-phone" style="color: var(--primary-red);"></i>
+            <a href="tel:+40772240860">+40 772 240 860</a>
+          </span>
+          <span class="contact-item">
+            <i class="fas fa-envelope" style="color: var(--primary-red);"></i>
+            <a href="mailto:office@cirasico.ro">office@cirasico.ro</a>
+          </span>
+          <span class="contact-item">
+            <i class="fas fa-map-marker-alt" style="color: var(--primary-red);"></i>
+            str. Depozitelor, Nr. 2, Năvodari, Constanța
+          </span>
+        </div>
+        <div class="contact-right">
+          <a href="https://www.facebook.com/cirasico/" target="_blank"
+            style="color: var(--light-grey); font-size: 1.5rem; margin-left: 1rem; text-decoration: none; transition: none !important; transform: none !important; scale: none !important; animation: none !important;">
+            <i class="fab fa-facebook"
+              style="transition: none !important; transform: none !important; scale: none !important; animation: none !important;"></i>
+          </a>
+          <a href="https://www.linkedin.com/company/cirasico-srl/" target="_blank" class="linkedin-link"
+            aria-label="Follow us on LinkedIn"
+            style="color: var(--light-grey); font-size: 1.5rem; margin-left: 1rem; text-decoration: none; transition: none !important; transform: none !important; scale: none !important; animation: none !important;">
+            <i class="fab fa-linkedin"
+              style="transition: none !important; transform: none !important; scale: none !important; animation: none !important;"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Navigation Header -->
+  <div class="navigation-header">
+    <div class="nav-container">
+      <div class="nav-content">
+        <div class="nav-logo">
+          <img src="FinalENGlogo.png" alt="CIRASICO Logo - Building for energy" class="logo-image">
+        </div>
+        <nav class="main-navigation">
+          <ul class="nav-menu">
+            <li><a href="CIRASICO-Demo.html#home"
+                style="color: black !important; text-decoration: none !important; background: transparent !important; border: none !important; transition: none !important;">Acasă</a>
+            </li>
+            <li><a href="CIRASICO-Demo.html#about"
+                style="color: black !important; text-decoration: none !important; background: transparent !important; border: none !important; transition: none !important;">Despre
+                noi</a></li>
+            <li><a href="CIRASICO-Demo.html#servicii"
+                style="color: black !important; text-decoration: none !important; background: transparent !important; border: none !important; transition: none !important;">Servicii</a>
+            </li>
+            <li><a href="#" class="contact-link"
+                style="color: black !important; text-decoration: none !important; background: transparent !important; border: none !important; transition: none !important;">Contact</a>
+            </li>
+            <li><a href="proiectele-noastre.html"
+                style="color: black !important; text-decoration: none !important; background: transparent !important; border: none !important; transition: none !important;">Proiectele
+                noastre</a></li>
+          </ul>
+        </nav>
+
+        <div class="mobile-menu-toggle">
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile Navigation Menu -->
+  <div class="mobile-navigation" id="mobile-navigation">
+    <ul class="mobile-nav-menu">
+      <li><a href="CIRASICO-Demo.html#home">Acasă</a></li>
+      <li><a href="CIRASICO-Demo.html#about">Despre noi</a></li>
+      <li><a href="CIRASICO-Demo.html#servicii">Servicii</a></li>
+      <li><a href="#" class="contact-link">Contact</a></li>
+      <li><a href="proiectele-noastre.html">Proiectele Noastre</a></li>
+    </ul>
+  </div>
+
+  <!-- Main Content -->
+  <main class="main-content">
+    <div class="content-section">
+      <h1 class="section-title"
+        style="margin-left: 0 !important; text-align: left !important; padding-left: 4rem !important; position: relative !important; left: 0 !important; border: none !important; border-bottom: none !important; text-decoration: none !important; outline: none !important; box-shadow: none !important; background: none !important; background-image: none !important;">
+        GALERIE</h1>
+    </div>
+
+    <!-- Project Gallery -->
+    <div class="project-gallery">
+      <div class="gallery-grid">
+        <div class="gallery-item">
+          <img src="Proiect1.jpeg" alt="Proiect 1" class="gallery-image">
+        </div>
+        <div class="gallery-item">
+          <img src="Proiect2.jpeg" alt="Proiect 2" class="gallery-image">
+        </div>
+        <div class="gallery-item">
+          <img src="Proiect3.jpeg" alt="Proiect 3" class="gallery-image">
+        </div>
+        <div class="gallery-item">
+          <img src="Proiect4.jpeg" alt="Proiect 4" class="gallery-image">
+        </div>
+        <div class="gallery-item">
+          <img src="Proiect5.jpeg" alt="Proiect 5" class="gallery-image">
+        </div>
+        <div class="gallery-item">
+          <img src="Proiect6.jpeg" alt="Proiect 6" class="gallery-image">
+        </div>
+        <div class="gallery-item">
+          <img src="Proiect7.jpeg" alt="Proiect 7" class="gallery-image">
+        </div>
+        <div class="gallery-item">
+          <img src="Proiect8.jpeg" alt="Proiect 8" class="gallery-image">
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Back to Top Button -->
+  <button id="back-to-top">
+    <i class="fas fa-arrow-up"></i>
+  </button>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>Contact</h3>
+        <p><i class="fas fa-phone" style="color: var(--primary-red); margin-right: 0.5rem;"></i> +40 772 240 860</p>
+        <p><i class="fas fa-envelope" style="color: var(--primary-red); margin-right: 0.5rem;"></i> office@cirasico.ro
+        </p>
+        <p><i class="fas fa-map-marker-alt" style="color: var(--primary-red); margin-right: 0.5rem;"></i> str.
+          Depozitelor, Nr. 2, Năvodari, Constanța</p>
+      </div>
+      <div class="footer-section">
+        <h3>PAGINI</h3>
+        <p><a href="CIRASICO-Demo.html#home"
+            style="color: white !important; text-decoration: none !important; transition: none !important;">Acasă</a>
+        </p>
+        <p><a href="CIRASICO-Demo.html#about"
+            style="color: white !important; text-decoration: none !important; transition: none !important;">Despre
+            noi</a></p>
+        <p><a href="CIRASICO-Demo.html#servicii"
+            style="color: white !important; text-decoration: none !important; transition: none !important;">Servicii</a>
+        </p>
+        <p><a href="proiectele-noastre.html"
+            style="color: white !important; text-decoration: none !important; transition: none !important;">Proiectele
+            noastre</a>
+        </p>
+        <p><a href="CIRASICO-Demo.html#contact"
+            style="color: white !important; text-decoration: none !important; transition: none !important;">Contact</a>
+        </p>
+      </div>
+      <div class="footer-section">
+        <h3>Urmărește-ne</h3>
+        <div class="social-links" style="display: flex; gap: 1rem; margin-top: 1rem;">
+          <a href="https://www.facebook.com/cirasico/" target="_blank"
+            style="color: var(--light-grey); font-size: 1.5rem; text-decoration: none; transition: none !important; transform: none !important; scale: none !important; animation: none !important;">
+            <i class="fab fa-facebook"
+              style="transition: none !important; transform: none !important; scale: none !important; animation: none !important;"></i>
+          </a>
+          <a href="https://www.linkedin.com/company/cirasico-srl/" target="_blank"
+            style="color: var(--light-grey); font-size: 1.5rem; text-decoration: none; transition: none !important; transform: none !important; scale: none !important; animation: none !important;">
+            <i class="fab fa-linkedin"
+              style="transition: none !important; transform: none !important; scale: none !important; animation: none !important;"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 CIRASICO SRL. Toate drepturile rezervate.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile menu functionality
+    document.addEventListener('DOMContentLoaded', function () {
+      const mobileToggle = document.querySelector('.mobile-menu-toggle');
+      const mobileNav = document.querySelector('.mobile-navigation');
+
+      if (mobileToggle && mobileNav) {
+        mobileToggle.addEventListener('click', function () {
+          const isExpanded = this.getAttribute('aria-expanded') === 'true';
+          this.setAttribute('aria-expanded', !isExpanded);
+          mobileNav.style.display = isExpanded ? 'none' : 'block';
+          this.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking on a link
+        const mobileLinks = mobileNav.querySelectorAll('a');
+        mobileLinks.forEach(link => {
+          link.addEventListener('click', function () {
+            mobileNav.style.display = 'none';
+            mobileToggle.classList.remove('active');
+            mobileNav.setAttribute('aria-expanded', 'false');
+          });
+        });
+      }
+
+      // Smooth scrolling for contact links
+      const contactLinks = document.querySelectorAll('a.contact-link, a[href*="#contact"]');
+
+      contactLinks.forEach(link => {
+        link.addEventListener('click', function (e) {
+          e.preventDefault();
+
+          // Scroll to footer contact section on the same page
+          const footer = document.querySelector('footer');
+          if (footer) {
+            footer.scrollIntoView({
+              behavior: 'smooth',
+              block: 'start'
+            });
+          }
+        });
+      });
+
+      // Handle services link to redirect to main page services section
+      const servicesLinks = document.querySelectorAll('a[href*="#servicii"]');
+
+      servicesLinks.forEach(link => {
+        link.addEventListener('click', function (e) {
+          e.preventDefault();
+
+          // Navigate to main page and scroll to services section
+          window.location.href = 'CIRASICO-Demo.html#servicii';
+        });
+      });
+
+      // Back to top functionality
+      const backToTopButton = document.getElementById('back-to-top');
+
+      if (backToTopButton) {
+        window.addEventListener('scroll', function () {
+          if (window.pageYOffset > 300) {
+            backToTopButton.style.display = 'flex';
+          } else {
+            backToTopButton.style.display = 'none';
+          }
+        });
+
+        backToTopButton.addEventListener('click', function () {
+          window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+          });
+        });
+      }
+    });
+  </script>
+</body>
+
+</html>
